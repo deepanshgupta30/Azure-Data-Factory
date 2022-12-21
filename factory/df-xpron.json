@@ -1,0 +1,9 @@
+{
+	"name": "df-xpron",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "82634147-c25e-4dee-bca7-22d8335802ce",
+		"tenantId": "ab52d4e5-9cc7-437a-bdda-f4239e145187"
+	}
+}

@@ -1,0 +1,47 @@
+{
+	"name": "Parquet_raw2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "country_response.parquet",
+				"folderPath": "raw/parquet",
+				"fileSystem": "cntnr"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": [
+			{
+				"name": "Country",
+				"type": "UTF8"
+			},
+			{
+				"name": "Response_measure",
+				"type": "UTF8"
+			},
+			{
+				"name": "change",
+				"type": "UTF8"
+			},
+			{
+				"name": "date_start",
+				"type": "UTF8"
+			},
+			{
+				"name": "date_end",
+				"type": "UTF8"
+			},
+			{
+				"name": "created_date",
+				"type": "UTF8"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
