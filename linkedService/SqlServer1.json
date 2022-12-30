@@ -1,0 +1,17 @@
+{
+	"name": "SqlServer1",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"connectionString": "integrated security=True;data source=.;initial catalog=AdventureWorks2019",
+			"userName": "AzureAD\\DeepanshGupta",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJjM2I2ZGQyOC05NTAyLTQ0NjEtYmM1NC04Zjk5YWNkNmUwNWMiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "selfhosted1",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
