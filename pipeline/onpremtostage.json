@@ -36,7 +36,7 @@
 								"source": {
 									"type": "SqlServerSource",
 									"sqlReaderQuery": {
-										"value": "@concat('Select',item().query,'from',item().schema_name,'.',item().table_name)",
+										"value": "@concat('Select ',item().query,' from ',item().schema_name,'.',item().table_name)",
 										"type": "Expression"
 									},
 									"queryTimeout": "02:00:00",
