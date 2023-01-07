@@ -1,0 +1,16 @@
+{
+	"name": "ds_SqlServer_dump_errorrows",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlServer1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "db1",
+			"table": "tbl_sales_bad"
+		}
+	}
+}
