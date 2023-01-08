@@ -31,23 +31,27 @@
 			"transformations": [
 				{
 					"name": "split1"
+				},
+				{
+					"name": "cast1"
 				}
 			],
 			"scriptLines": [
-				"parameters{",
-				"     parameter1 as string",
-				"}",
 				"source(output(",
 				"          saleDate as string,",
 				"          saleItem as string,",
 				"          {country } as string,",
-				"          quantity as short",
+				"          quantity as string",
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> datafromblob",
 				"datafromblob split(isNull(toDate(saleDate, 'dd-MMM-YYYY')),",
 				"     disjoint: false) ~> split1@(ErrorRows, GoodRows)",
+				"split1@GoodRows cast(output(",
+				"          saleDate as date 'dd-MMM-yy'",
+				"     ),",
+				"     errors: true) ~> cast1",
 				"split1@ErrorRows sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
@@ -64,7 +68,7 @@
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
 				"     errorHandlingOption: 'stopOnFirstError') ~> sink1",
-				"split1@GoodRows sink(allowSchemaDrift: true,",
+				"cast1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
 				"          saleDate as date,",
@@ -76,10 +80,17 @@
 				"     insertable:true,",
 				"     updateable:false,",
 				"     upsertable:false,",
+				"     truncate:true,",
 				"     format: 'table',",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
-				"     errorHandlingOption: 'stopOnFirstError') ~> sink2"
+				"     errorHandlingOption: 'stopOnFirstError',",
+				"     mapColumn(",
+				"          saleDate,",
+				"          saleItem,",
+				"          country = {country },",
+				"          quantity",
+				"     )) ~> sink2"
 			]
 		}
 	}
