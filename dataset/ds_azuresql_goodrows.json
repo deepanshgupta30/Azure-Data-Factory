@@ -1,0 +1,34 @@
+{
+	"name": "ds_azuresql_goodrows",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "saleDate",
+				"type": "date"
+			},
+			{
+				"name": "saleItem",
+				"type": "varchar"
+			},
+			{
+				"name": "country",
+				"type": "varchar"
+			},
+			{
+				"name": "quantity",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "tbl_sales"
+		}
+	}
+}
