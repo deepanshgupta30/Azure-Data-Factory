@@ -140,7 +140,7 @@
 				"     negate:false,",
 				"     broadcast: 'auto')~> checkForChanges",
 				"ConditionalSplit1@NewRow derive(iscurrent = 1,",
-				"          surrogatekey = toString(crc32(EmpID,EmpFunction))) ~> SetAttrsForNew",
+				"          surrogatekey = toString(crc32(EmpID,Role))) ~> SetAttrsForNew",
 				"checkForChanges derive(iscurrent = 0) ~> SetAttrsInactive",
 				"checkForChanges derive(iscurrent = 1) ~> SetAttrsUpdate",
 				"LookupIDs select(mapColumn(",
@@ -234,16 +234,11 @@
 				"     ),",
 				"     deletable:false,",
 				"     insertable:false,",
-				"     updateable:true,",
-				"     upsertable:false,",
+				"     updateable:false,",
+				"     upsertable:true,",
+				"     keys:['EmpID'],",
 				"     format: 'table',",
 				"     errorHandlingOption: 'stopOnFirstError',",
-				"     mapColumn(",
-				"          EmpID,",
-				"          EndDate,",
-				"          iscurrent,",
-				"          processtime",
-				"     ),",
 				"     partitionBy('roundRobin', 4)) ~> sinkInactive"
 			]
 		}
