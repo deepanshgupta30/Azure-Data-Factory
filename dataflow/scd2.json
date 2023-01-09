@@ -151,7 +151,6 @@
 				"          Role = Employees1@Role,",
 				"          StartDate = TypeConversionsAndSetAttrs@StartDate,",
 				"          EndDate = TypeConversionsAndSetAttrs@EndDate,",
-				"          EmpFunction = Function,",
 				"          iscurrent,",
 				"          surrogatekey",
 				"     ),",
