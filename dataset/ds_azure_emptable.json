@@ -1,0 +1,55 @@
+{
+	"name": "ds_azure_emptable",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "empID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "surrogateKey",
+				"type": "varchar"
+			},
+			{
+				"name": "Region",
+				"type": "varchar"
+			},
+			{
+				"name": "status",
+				"type": "varchar"
+			},
+			{
+				"name": "level",
+				"type": "varchar"
+			},
+			{
+				"name": "role",
+				"type": "varchar"
+			},
+			{
+				"name": "startDate",
+				"type": "date"
+			},
+			{
+				"name": "endDate",
+				"type": "date"
+			},
+			{
+				"name": "isCurrent",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "dimemp"
+		}
+	}
+}
