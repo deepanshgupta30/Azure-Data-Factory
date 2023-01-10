@@ -90,7 +90,7 @@
 				"          startDate = toDate(startDate,'dd/MM/yy')) ~> setIsActive",
 				"sql derive(SurrogateKey = md5(name,department)) ~> HashRef",
 				"HashRef, setIsActive exists(sql@id == HashInput@id",
-				"     && sql@name == csv@name,",
+				",",
 				"     negate:false,",
 				"     broadcast: 'auto')~> exists",
 				"exists derive(isActive = 0,",
