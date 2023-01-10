@@ -15,7 +15,7 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "ds_scd1_output",
+						"referenceName": "Ds_scd1_cleansed_file",
 						"type": "DatasetReference"
 					},
 					"name": "sink1"
@@ -38,22 +38,21 @@
 				"updatedrawfile alterRow(upsertIf(1==1)) ~> alterRow1",
 				"alterRow1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     deletable:false,",
-				"     insertable:false,",
-				"     updateable:false,",
-				"     upsertable:true,",
-				"     keys:['empid'],",
-				"     format: 'table',",
+				"     input(",
+				"          empid as string,",
+				"          {name } as string,",
+				"          location as string",
+				"     ),",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
-				"     errorHandlingOption: 'stopOnFirstError',",
 				"     mapColumn(",
 				"          empid,",
 				"          {name },",
 				"          location",
-				"     ),",
-				"     preCommands: [],",
-				"     postCommands: []) ~> sink1"
+				"     )) ~> sink1"
 			]
 		}
 	}
