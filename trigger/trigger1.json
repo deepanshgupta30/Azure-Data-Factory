@@ -1,0 +1,24 @@
+{
+	"name": "trigger1",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "iotdata",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/cntnr1/blobs/2023",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/bb5f019d-1745-4640-81ae-cd07b097a029/resourceGroups/xpron/providers/Microsoft.Storage/storageAccounts/strgacc1143",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}
