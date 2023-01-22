@@ -2292,6 +2292,36 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/trigger1')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Stopped",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "iotdata",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					}
+				],
+				"type": "BlobEventsTrigger",
+				"typeProperties": {
+					"blobPathBeginsWith": "/cntnr1/blobs/",
+					"ignoreEmptyBlobs": true,
+					"scope": "[parameters('trigger1_properties_typeProperties_scope')]",
+					"events": [
+						"Microsoft.Storage.BlobCreated"
+					]
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/iotdata')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/selfhosted1')]",
 			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
 			"apiVersion": "2018-06-01",
@@ -3105,36 +3135,6 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/ds_raw_empdata')]",
 				"[concat(variables('factoryId'), '/datasets/ds_azure_emptable')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/trigger1')]",
-			"type": "Microsoft.DataFactory/factories/triggers",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"runtimeState": "Stopped",
-				"pipelines": [
-					{
-						"pipelineReference": {
-							"referenceName": "iotdata",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
-					}
-				],
-				"type": "BlobEventsTrigger",
-				"typeProperties": {
-					"blobPathBeginsWith": "/cntnr1/blobs/2023",
-					"ignoreEmptyBlobs": true,
-					"scope": "[parameters('trigger1_properties_typeProperties_scope')]",
-					"events": [
-						"Microsoft.Storage.BlobCreated"
-					]
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/iotdata')]"
 			]
 		}
 	]

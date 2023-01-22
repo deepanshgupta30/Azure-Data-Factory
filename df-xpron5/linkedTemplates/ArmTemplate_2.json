@@ -1424,7 +1424,7 @@
 				],
 				"type": "BlobEventsTrigger",
 				"typeProperties": {
-					"blobPathBeginsWith": "/cntnr1/blobs/2023",
+					"blobPathBeginsWith": "/cntnr1/blobs/",
 					"ignoreEmptyBlobs": true,
 					"scope": "[parameters('trigger1_properties_typeProperties_scope')]",
 					"events": [
