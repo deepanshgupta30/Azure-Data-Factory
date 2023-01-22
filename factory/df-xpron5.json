@@ -1,0 +1,9 @@
+{
+	"name": "df-xpron5",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "a7ecec22-8e1c-4ff6-826a-dfe9c9e46244",
+		"tenantId": "fef9f571-43d5-4cf2-aa2c-b74af0db934d"
+	}
+}

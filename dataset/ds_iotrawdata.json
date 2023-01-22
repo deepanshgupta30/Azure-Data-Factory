@@ -1,0 +1,66 @@
+{
+	"name": "ds_iotrawdata",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "0_576e2815252f478d82ee0af6c2ccfda1_1.json",
+				"folderPath": "raw",
+				"fileSystem": "cntnr1"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"messageId": {
+					"type": "integer"
+				},
+				"deviceId": {
+					"type": "string"
+				},
+				"temperature": {
+					"type": "number"
+				},
+				"humidity": {
+					"type": "number"
+				},
+				"EventProcessedUtcTime": {
+					"type": "string"
+				},
+				"PartitionId": {
+					"type": "integer"
+				},
+				"EventEnqueuedUtcTime": {
+					"type": "string"
+				},
+				"IoTHub": {
+					"type": "object",
+					"properties": {
+						"MessageId": {
+							"type": "null"
+						},
+						"CorrelationId": {
+							"type": "null"
+						},
+						"ConnectionDeviceId": {
+							"type": "string"
+						},
+						"ConnectionDeviceGenerationId": {
+							"type": "string"
+						},
+						"EnqueuedTime": {
+							"type": "string"
+						}
+					}
+				}
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
