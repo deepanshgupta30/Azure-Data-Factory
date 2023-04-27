@@ -1,0 +1,17 @@
+{
+	"name": "onprem",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "FileServer",
+		"typeProperties": {
+			"host": "C:\\\\Users\\\\DeepanshGupta\\\\Downloads\\\\IMDB",
+			"userId": "HSHLT-1796",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiIyMmNlNTVkNi03OWYzLTQyMWYtOTdkNy1hMGQzMjA1ZDE2ODkiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "integrationRuntime1",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
